@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Projects and experiments by Matt Stafrace - Data, Compliance, Technology">
     <meta name="author" content="Matt Stafrace">
-    <meta property="og:title" content="Matt Stafrace – Data, Compliance, Technology">
-    <meta property="og:description" content="Projects and experiments combining data, compliance and emerging tech.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://example.com/">
     <meta property="og:site_name" content="Matt Stafrace">
+    <meta property="og:title" content="Matt Stafrace – Data, Compliance, Technology">
+    <meta property="og:description" content="Projects and experiments across data, compliance and emerging tech.">
+    <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Matt Stafrace – Data, Compliance, Technology">
-    <meta name="twitter:description" content="Projects and experiments combining data, compliance and emerging tech.">
     <title>Matt Stafrace - Data, Compliance, Technology</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.svg">
+    <meta name="theme-color" content="#1877F2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Work+Sans:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -58,7 +61,7 @@
         <section id="about" class="about">
             <div class="container">
                 <h2>About</h2>
-                <p>Welcome to a small collection of projects that bring together data, compliance, and emerging technology. Here you’ll find work I’m building, experimenting with, and refining.</p>
+                <p>Welcome to my space for showcasing projects that bring together data, compliance, and emerging technologies. Here you’ll find the work I’ve been building, experimenting with, and refining</p>
             </div>
         </section>
 
@@ -107,58 +110,6 @@
             <p>&copy; 2025 Matt Stafrace. | <a class="footer-link" href="https://www.linkedin.com/in/matthew-stafrace/" target="_blank" rel="noopener">LinkedIn</a></p>
         </div>
     </footer>
-    <script>
-    (function(){
-        const toggle = document.querySelector('.nav-toggle');
-        const cluster = document.getElementById('nav-cluster');
-        if (toggle && cluster) {
-            toggle.addEventListener('click', () => {
-                const expanded = toggle.getAttribute('aria-expanded') === 'true';
-                toggle.setAttribute('aria-expanded', String(!expanded));
-                cluster.classList.toggle('open');
-            });
-        }
-
-        // Active nav link auto-detection
-        const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
-        function normalise(href){
-            try { return new URL(href, window.location.origin).href.replace(/#$/, ''); } catch(e){ return href; }
-        }
-        function applyActive(){
-            const current = window.location.href.split('#')[0];
-            const hash = window.location.hash;
-            navLinks.forEach(a => a.classList.remove('active'));
-            // 1. If on the index, highlight based on hash section in view or hash presence
-            if (document.body.contains(document.querySelector('#projects'))) {
-                if (hash) {
-                    const targetLink = navLinks.find(a => a.getAttribute('href') === hash);
-                    if (targetLink) targetLink.classList.add('active');
-                } else {
-                    // Default state: none active until scrolled into a section
-                }
-            }
-        }
-        applyActive();
-        window.addEventListener('hashchange', applyActive);
-
-        // Scroll spy (basic) to set active as sections enter viewport
-        const sectionIds = ['about','projects','contact'];
-        const observer = ('IntersectionObserver' in window) ? new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.id;
-                    const link = navLinks.find(a => a.getAttribute('href') === '#' + id);
-                    if (link) {
-                        navLinks.forEach(a => a.classList.remove('active'));
-                        link.classList.add('active');
-                    }
-                }
-            });
-        }, { rootMargin: '-40% 0px -50% 0px', threshold: 0.01 }) : null;
-        if (observer) {
-            sectionIds.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
-        }
-    })();
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>

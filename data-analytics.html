@@ -14,6 +14,11 @@
     <meta name="twitter:title" content="Data Analytics Platform – Matt Stafrace">
     <meta name="twitter:description" content="Compact KPI layer with lineage, quality signals and focused visuals.">
     <title>Data Analytics Platform - Matt Stafrace</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="theme-color" content="#1877F2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Work+Sans:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -53,14 +58,14 @@
             <div class="container">
                 <h2>Intent</h2>
                 <p>Planned: a compact layer for curated KPIs, transparent lineage and lightweight data quality signals, avoiding dashboard sprawl.</p>
-                <ul style="max-width:700px; margin:1.5rem auto 2.5rem; line-height:1.6; color:#4a5b68; font-size:0.95rem;">
+                <ul class="intent-list">
                     <li>Opinionated metric definitions (reduce semantic drift)</li>
                     <li>Embedded quality & freshness indicators</li>
                     <li>Small visual component set (clarity > novelty)</li>
                     <li>Fast feedback loops for iteration</li>
                 </ul>
                 <p class="watch-note">Scoping only. Build notes and release information will appear here — watch this space.</p>
-                <p style="margin-top:2rem;"><a href="index.html#projects" class="btn-back">Back to Projects</a></p>
+                <p class="mt-gap-lg"><a href="index.html#projects" class="btn-back">Back to Projects</a></p>
             </div>
         </section>
     </main>
@@ -70,22 +75,6 @@
             <p>&copy; 2025 Matt Stafrace. All rights reserved. | <a class="footer-link" href="https://www.linkedin.com/in/matthew-stafrace/" target="_blank" rel="noopener">LinkedIn</a></p>
         </div>
     </footer>
-    <script>
-    (function(){
-        const toggle = document.querySelector('.nav-toggle');
-        const cluster = document.getElementById('nav-cluster');
-        if (toggle && cluster) {
-            toggle.addEventListener('click', () => {
-                const expanded = toggle.getAttribute('aria-expanded') === 'true';
-                toggle.setAttribute('aria-expanded', String(!expanded));
-                cluster.classList.toggle('open');
-            });
-        }
-        // Active nav link: highlight Projects when on a project detail page
-        const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
-        const projLink = navLinks.find(a => /#projects$/.test(a.getAttribute('href')));
-        if (projLink) projLink.classList.add('active');
-    })();
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
