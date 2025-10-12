@@ -174,6 +174,7 @@ h1, h2, h3, .hero-title, .site-title {
 /* Minimal utility components */
 .status-badge { display:inline-block; font-size:0.68rem; letter-spacing:1.1px; font-weight:600; text-transform:uppercase; background:#e8f1ff; color:var(--fb-blue-dark); padding:0.38rem 0.65rem 0.4rem; border-radius:999px; border:1px solid #b3cffb; box-shadow:0 1px 3px rgba(0,0,0,0.08); }
 .status-badge[data-state="in-progress"] { background:#e8f1ff; border-color:#bcd6ff; color:var(--fb-blue-dark); }
+.status-badge[data-state="beta-released"] { background:#d4f4dd; border-color:#86d293; color:#0a5f1f; }
 .watch-note { font-size: 0.85rem; color:#4a5b68; opacity:0.9; }
 
 /* Utilities */
