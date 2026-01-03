@@ -437,6 +437,7 @@ section p {
 }
 .btn-back:hover, .btn-back:focus-visible { 
     background: var(--neo-yellow); 
+    transform: translate(-2px, -2px); 
     box-shadow: var(--neo-shadow-hover);
 }
 
@@ -601,7 +602,7 @@ body[data-page="livlift"] .hero {
     background: #050505;
     border-bottom: 4px solid var(--neo-border);
     min-height: auto;
-    padding: 3rem 0 2.25rem;
+    padding: 4.25rem 0 3.25rem;
 }
 
 body[data-page="livlift"] .hero::before {
@@ -659,25 +660,24 @@ body[data-page="livlift"] .livlift-lockup {
 }
 
 body[data-page="livlift"] .livlift-logo-box {
-    background: #db2777;
-    padding: 30px;
-    border-radius: 24px;
-    transform: rotate(-8deg);
-    display: grid;
-    place-items: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.55);
+    background: #EC4899;
+    padding: 8px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(236,72,153,0.20);
     flex: 0 0 auto;
     width: 192px;
     height: 192px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 
 body[data-page="livlift"] .livlift-logo-inner {
     color: #ffffff;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    place-items: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 body[data-page="livlift"] .livlift-logo-inner,
@@ -694,7 +694,6 @@ body[data-page="livlift"] .livlift-logo-inner img {
     display: block;
     width: 140%;
     height: 140%;
-    transform: translateY(-6%);
 }
 
 body[data-page="livlift"] .livlift-lockup-text {
@@ -718,20 +717,12 @@ body[data-page="livlift"] .livlift-lockup .hero-subtitle {
     margin-right: 0;
 }
 
-/* LivLift CTA (open app) */
-body[data-page="livlift"] .livlift-app-cta {
-    display: flex;
-    justify-content: center;
-    margin: 0.25rem 0 2rem;
-}
-
 /* LivLift screenshot mockups */
 body[data-page="livlift"] .livlift-screenshot-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.25rem;
-    margin: 1.25rem auto 2.25rem;
-    max-width: 980px;
+    margin: 1.25rem 0 2.25rem;
 }
 
 body[data-page="livlift"] .phone-mockup {
@@ -740,7 +731,7 @@ body[data-page="livlift"] .phone-mockup {
 }
 
 body[data-page="livlift"] .phone-frame {
-    width: min(440px, 100%);
+    width: min(320px, 100%);
     aspect-ratio: 9 / 19.5;
     border-radius: 28px;
     background: #0b0b0b;
@@ -774,13 +765,6 @@ body[data-page="livlift"] .phone-screen {
     overflow: hidden;
 }
 
-body[data-page="livlift"] .phone-screen img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
 body[data-page="livlift"] .phone-placeholder {
     color: #A1A1AA;
     font-weight: 700;
@@ -802,8 +786,6 @@ body[data-page="livlift"] .livlift-lockup .hero-subtitle {
     body[data-page="livlift"] .livlift-logo-box {
         width: 144px;
         height: 144px;
-        padding: 22px;
-        border-radius: 20px;
     }
 
     body[data-page="livlift"] .livlift-lockup {
@@ -821,12 +803,9 @@ body[data-page="livlift"] .livlift-lockup .hero-subtitle {
     }
 }
 
-
-
 body[data-page="livlift"] .about {
     background: #050505;
     border-bottom: 4px solid var(--neo-border);
-    padding-top: 2rem;
 }
 
 body[data-page="livlift"] section h2::after {

@@ -33,6 +33,207 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+/* -------------------------------------------------------------------------- */
+/* LivLift page takeover (scoped)                                              */
+/* -------------------------------------------------------------------------- */
+
+@keyframes pulse-flame { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.8; } }
+.animate-flame { animation: pulse-flame 2s infinite ease-in-out; }
+
+body[data-page="livlift"] {
+    background: #070707;
+    color: #F8FAFC;
+}
+
+body[data-page="livlift"] .main {
+    background: transparent;
+}
+
+body[data-page="livlift"] .hero {
+    background: #0B0B0B;
+}
+
+body[data-page="livlift"] .hero::before {
+    background: #111111;
+}
+
+body[data-page="livlift"] .status-badge {
+    background: #db2777;
+    color: #0A0A0A;
+    border: 3px solid #000;
+}
+
+body[data-page="livlift"] h1,
+body[data-page="livlift"] h2,
+body[data-page="livlift"] h3,
+body[data-page="livlift"] .hero-title {
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: -0.06em;
+}
+
+body[data-page="livlift"] .hero-title,
+body[data-page="livlift"] .hero-subtitle {
+    color: #F8FAFC;
+}
+
+body[data-page="livlift"] .hero-subtitle {
+    opacity: 0.9;
+}
+
+body[data-page="livlift"] .about {
+    background: transparent;
+}
+
+body[data-page="livlift"] .about .container {
+    padding-top: 2rem;
+    padding-bottom: 3.5rem;
+}
+
+body[data-page="livlift"] a {
+    color: #F8FAFC;
+}
+
+body[data-page="livlift"] a:hover {
+    color: #F8FAFC;
+}
+
+body[data-page="livlift"] code {
+    background: rgba(219, 39, 119, 0.12);
+    border: 2px solid #000;
+    padding: 0.12rem 0.4rem;
+    border-radius: 0.75rem;
+}
+
+body[data-page="livlift"] .livlift-hero-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1rem;
+    color: #db2777;
+    border: 4px solid #000;
+    border-radius: 2.5rem;
+    background: #0F0F0F;
+    box-shadow: var(--neo-shadow-lg);
+}
+
+body[data-page="livlift"] .livlift-accent {
+    width: 68px;
+    height: 10px;
+    border-radius: 999px;
+    background: #db2777;
+    border: 3px solid #000;
+    box-shadow: 0 0 18px rgba(219, 39, 119, 0.5);
+    margin: 1rem 0 1.25rem;
+}
+
+body[data-page="livlift"] .livlift-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+body[data-page="livlift"] .livlift-card {
+    background: #0E0E0E;
+    border: 4px solid #000;
+    border-radius: 2.5rem;
+    padding: 1.5rem 1.5rem;
+    box-shadow: var(--neo-shadow);
+}
+
+body[data-page="livlift"] .livlift-card h3 {
+    margin-bottom: 0.75rem;
+}
+
+body[data-page="livlift"] .livlift-card p {
+    color: rgba(248, 250, 252, 0.88);
+}
+
+body[data-page="livlift"] .livlift-chart {
+    margin-top: 1rem;
+}
+
+body[data-page="livlift"] .metric {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 1rem 0;
+    border-top: 2px dashed rgba(248, 250, 252, 0.18);
+}
+
+body[data-page="livlift"] .metric:first-child {
+    border-top: 0;
+    padding-top: 0;
+}
+
+body[data-page="livlift"] .metric-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+body[data-page="livlift"] .metric-label {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+}
+
+body[data-page="livlift"] .metric-value {
+    font-weight: 900;
+    color: #db2777;
+}
+
+body[data-page="livlift"] .metric-bar {
+    position: relative;
+    height: 56px;
+    border: 4px solid #000;
+    border-radius: 2.5rem;
+    background: #090909;
+    overflow: hidden;
+    box-shadow: 4px 4px 0 #000;
+}
+
+body[data-page="livlift"] .metric-bar::before {
+    content: '';
+    position: absolute;
+    inset: 10px;
+    border-radius: 2.5rem;
+    border: 2px solid rgba(248, 250, 252, 0.12);
+}
+
+/* Chart styles (exact definitions required) */
+body[data-page="livlift"] .bar-fill { width: 6px; background: #db2777; border-radius: 10px; position: relative; transition: height 1s; }
+body[data-page="livlift"] .bar-dot { width: 10px; height: 10px; background: #db2777; border-radius: 50%; box-shadow: 0 0 15px #db2777; border: 2px solid black; }
+
+/* Place the small bar on the right edge and grow upward */
+body[data-page="livlift"] .metric-bar .bar-fill {
+    position: absolute;
+    right: 22px;
+    bottom: 12px;
+    height: 0%;
+}
+
+body[data-page="livlift"] .metric-bar .bar-dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -6px;
+}
+
+body[data-page="livlift"] .footer {
+    background: #0B0B0B;
+}
+
+body[data-page="livlift"] .footer-link {
+    color: #F8FAFC;
+}
+
 /* Headings use Work Sans for bold neobrutalism look */
 h1, h2, h3, .hero-title, .site-title {
     font-family: 'Work Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -437,6 +638,7 @@ section p {
 }
 .btn-back:hover, .btn-back:focus-visible { 
     background: var(--neo-yellow); 
+    transform: translate(-2px, -2px); 
     box-shadow: var(--neo-shadow-hover);
 }
 
@@ -575,331 +777,6 @@ section p {
 .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-/* ------------------------------------------------------------
-   LivLift page takeover (scoped)
-   NOTE: Keep all overrides under body[data-page="livlift"]
------------------------------------------------------------- */
-
-@keyframes pulse-flame {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.1); opacity: 0.8; }
-}
-
-.animate-flame { animation: pulse-flame 2s infinite ease-in-out; }
-
-/* Exact chart definitions (used by LivLift page) */
-.bar-fill { width: 6px; background: #db2777; border-radius: 10px; position: relative; transition: height 1s; }
-.bar-dot { width: 10px; height: 10px; background: #db2777; border-radius: 50%; box-shadow: 0 0 15px #db2777; border: 2px solid black; }
-
-body[data-page="livlift"] {
-    background: #050505;
-    color: #EDEDED;
-}
-
-body[data-page="livlift"] .hero {
-    background: #050505;
-    border-bottom: 4px solid var(--neo-border);
-    min-height: auto;
-    padding: 3rem 0 2.25rem;
-}
-
-body[data-page="livlift"] .hero::before {
-    content: none;
-}
-
-body[data-page="livlift"] .hero-title,
-body[data-page="livlift"] section h2,
-body[data-page="livlift"] h3 {
-    font-weight: 900;
-    font-style: italic;
-    text-transform: uppercase;
-    letter-spacing: -0.06em;
-}
-
-body[data-page="livlift"] section h2,
-body[data-page="livlift"] .project-panel h3 {
-    color: #f8fafc;
-}
-
-body[data-page="livlift"] section h2 {
-    opacity: 1;
-}
-
-body[data-page="livlift"] .hero-title,
-body[data-page="livlift"] .hero-subtitle {
-    color: #EDEDED;
-}
-
-body[data-page="livlift"] .hero-subtitle {
-    color: #A1A1AA;
-    opacity: 1;
-}
-
-body[data-page="livlift"] .status-badge {
-    background: #0b0b0b;
-    color: #EDEDED;
-    border-color: #EC4899;
-}
-
-body[data-page="livlift"] .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* LivLift logo lockup (app-accurate treatment) */
-body[data-page="livlift"] .livlift-lockup {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.25rem;
-    margin: 0.5rem auto 0;
-}
-
-body[data-page="livlift"] .livlift-logo-box {
-    background: #db2777;
-    padding: 30px;
-    border-radius: 24px;
-    transform: rotate(-8deg);
-    display: grid;
-    place-items: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.55);
-    flex: 0 0 auto;
-    width: 192px;
-    height: 192px;
-    overflow: hidden;
-}
-
-body[data-page="livlift"] .livlift-logo-inner {
-    color: #ffffff;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    place-items: center;
-}
-
-body[data-page="livlift"] .livlift-logo-inner,
-body[data-page="livlift"] .livlift-logo-box {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-body[data-page="livlift"] .livlift-logo-inner svg {
-    display: block;
-}
-
-body[data-page="livlift"] .livlift-logo-inner img {
-    display: block;
-    width: 140%;
-    height: 140%;
-    transform: translateY(-6%);
-}
-
-body[data-page="livlift"] .livlift-lockup-text {
-    text-align: center;
-}
-
-body[data-page="livlift"] .livlift-lockup {
-    text-align: center;
-}
-
-body[data-page="livlift"] .livlift-lockup-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-body[data-page="livlift"] .livlift-lockup .hero-title,
-body[data-page="livlift"] .livlift-lockup .hero-subtitle {
-    text-align: center;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-/* LivLift CTA (open app) */
-body[data-page="livlift"] .livlift-app-cta {
-    display: flex;
-    justify-content: center;
-    margin: 0.25rem 0 2rem;
-}
-
-/* LivLift screenshot mockups */
-body[data-page="livlift"] .livlift-screenshot-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.25rem;
-    margin: 1.25rem auto 2.25rem;
-    max-width: 980px;
-}
-
-body[data-page="livlift"] .phone-mockup {
-    display: flex;
-    justify-content: center;
-}
-
-body[data-page="livlift"] .phone-frame {
-    width: min(440px, 100%);
-    aspect-ratio: 9 / 19.5;
-    border-radius: 28px;
-    background: #0b0b0b;
-    border: 3px solid var(--neo-border);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.55);
-    position: relative;
-    padding: 14px;
-}
-
-body[data-page="livlift"] .phone-notch {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 38%;
-    height: 18px;
-    border-radius: 999px;
-    background: #050505;
-    border: 2px solid rgba(236,72,153,0.55);
-}
-
-body[data-page="livlift"] .phone-screen {
-    width: 100%;
-    height: 100%;
-    border-radius: 22px;
-    background: #050505;
-    border: 2px solid rgba(236,72,153,0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-body[data-page="livlift"] .phone-screen img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-body[data-page="livlift"] .phone-placeholder {
-    color: #A1A1AA;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 0.8rem;
-    padding: 1rem;
-    text-align: center;
-}
-
-body[data-page="livlift"] .livlift-lockup .hero-title { margin-bottom: 0.35rem; }
-body[data-page="livlift"] .livlift-lockup .hero-subtitle { margin-bottom: 0; }
-
-body[data-page="livlift"] .livlift-lockup .hero-subtitle {
-    color: #A1A1AA;
-}
-
-@media (max-width: 768px) {
-    body[data-page="livlift"] .livlift-logo-box {
-        width: 144px;
-        height: 144px;
-        padding: 22px;
-        border-radius: 20px;
-    }
-
-    body[data-page="livlift"] .livlift-lockup {
-        width: 100%;
-        justify-content: center;
-        gap: 0.875rem;
-    }
-
-    body[data-page="livlift"] .livlift-lockup-text {
-        align-items: center;
-    }
-
-    body[data-page="livlift"] .livlift-screenshot-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-
-body[data-page="livlift"] .about {
-    background: #050505;
-    border-bottom: 4px solid var(--neo-border);
-    padding-top: 2rem;
-}
-
-body[data-page="livlift"] section h2::after {
-    background: #EC4899;
-}
-
-body[data-page="livlift"] section p,
-body[data-page="livlift"] .intent-list {
-    color: #EDEDED;
-}
-
-body[data-page="livlift"] code {
-    background: #0b0b0b;
-    border: 2px solid var(--neo-border);
-    padding: 0.1rem 0.35rem;
-    border-radius: 0.75rem;
-}
-
-body[data-page="livlift"] .project-grid {
-    display: grid;
-    gap: 1.25rem;
-    margin: 2rem auto 2.75rem;
-    max-width: 980px;
-}
-
-
-
-body[data-page="livlift"] .project-panel {
-    background: #0b0b0b;
-    border: 4px solid var(--neo-border);
-    border-radius: 2.5rem;
-    box-shadow: var(--neo-shadow-lg);
-    padding: 1.5rem;
-    text-align: left;
-}
-
-body[data-page="livlift"] .project-panel h3 {
-    margin-bottom: 0.5rem;
-    color: #f8fafc;
-}
-
-body[data-page="livlift"] .project-panel p {
-    text-align: left;
-    margin: 0;
-}
-
-body[data-page="livlift"] .livlift-decisions {
-    display: grid;
-    gap: 1.25rem;
-    margin: 2rem auto 2.75rem;
-    max-width: 980px;
-}
-
-body[data-page="livlift"] .livlift-decision p {
-    margin-top: 0.75rem;
-    text-align: left;
-}
-
-body[data-page="livlift"] .livlift-decision strong {
-    color: #db2777;
-}
-
-body[data-page="livlift"] .btn-back {
-    background: #0b0b0b;
-    color: #f8fafc;
-    border-color: #db2777;
-}
-
-body[data-page="livlift"] .btn-back:hover,
-body[data-page="livlift"] .btn-back:focus-visible {
-    background: #db2777;
-    color: #050505;
-}
 
 /* Desktop ensure cluster visible */
 @media (min-width: 769px) {

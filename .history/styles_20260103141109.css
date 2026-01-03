@@ -601,7 +601,7 @@ body[data-page="livlift"] .hero {
     background: #050505;
     border-bottom: 4px solid var(--neo-border);
     min-height: auto;
-    padding: 3rem 0 2.25rem;
+    padding: 4.25rem 0 3.25rem;
 }
 
 body[data-page="livlift"] .hero::before {
