@@ -57,24 +57,60 @@
                 </div>
             </div>
         </section>
-        <section class="about">
+        <section class="projects project-detail">
             <div class="container">
-                <h2>Intent</h2>
-                <p>Beta release: a minimal structure for mapping policies → controls → evidence, surfacing drift early rather than generating ornamental reports.</p>
-                <ul class="intent-list">
-                    <li>Control health indicators (freshness / exceptions)</li>
-                    <li>Traceable decision & exception register</li>
-                    <li>Low-friction evidence capture loops</li>
-                </ul>
-                <p class="watch-note">Beta version is now live.</p>
-                <p class="mt-gap-lg"><a href="index.html#projects" class="btn-back">Back to Projects</a></p>
+                <div class="project-layout" aria-label="Compliance Framework project details">
+                    <div class="project-copy">
+                        <h2>Overview</h2>
+                        <p>The Compliance Framework is a compact system for mapping <strong>policies → controls → evidence</strong> and surfacing drift early (freshness gaps, missing artefacts, exceptions) before audit time pressure kicks in.</p>
+                        <p>Instead of dashboard sprawl, it focuses on a small set of high-signal views: control health, evidence state, and traceability back to policy intent.</p>
+
+                        <h3 class="project-subheading">Key Details</h3>
+                        <table class="detail-table" aria-label="Key details">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Release date</th>
+                                    <td>October 2025</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Last update</th>
+                                    <td>January 2026</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Status</th>
+                                    <td>Beta released</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3 class="project-subheading">Technologies Used</h3>
+                        <div class="tech-chips" aria-label="Technologies used">
+                            <span class="tech-chip">Node.js</span>
+                            <span class="tech-chip">Express</span>
+                            <span class="tech-chip">PostgreSQL</span>
+                            <span class="tech-chip">Docker</span>
+                            <span class="tech-chip">Render</span>
+                        </div>
+
+                        <h3 class="project-subheading">Project Impact</h3>
+                        <p>Designed to reduce the “where is that evidence?” loop by making ownership, freshness, and traceability explicit. The goal is fewer late-stage surprises, cleaner exception handling, and faster audit readiness without adding busywork to engineering teams.</p>
+                    </div>
+
+                    <aside class="project-visual" aria-label="Visual placeholder">
+                        <div class="project-visual-inner">
+                            <img class="project-visual-image" src="public/product/compliance-screenshot.png" alt="Compliance Framework screenshot" loading="lazy" decoding="async" />
+                        </div>
+                    </aside>
+                </div>
+
+                <p class="mt-gap-lg project-back"><a href="index.html#projects" class="btn-back">Back to Projects</a></p>
             </div>
         </section>
     </main>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Matt Stafrace. All rights reserved. | <a class="footer-link" href="https://www.linkedin.com/in/matthew-stafrace/" target="_blank" rel="noopener">LinkedIn</a></p>
+            <p>&copy; 2026 Matt Stafrace | <a class="footer-link" href="https://www.linkedin.com/in/matthew-stafrace/" target="_blank" rel="noopener">LinkedIn</a></p>
         </div>
     </footer>
     <script src="scripts.js"></script>
