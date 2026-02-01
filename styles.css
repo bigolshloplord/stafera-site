@@ -22,6 +22,14 @@ html { scroll-behavior: smooth; }
     --neo-shadow: 4px 4px 0px #000000;
     --neo-shadow-lg: 8px 8px 0px #000000;
     --neo-shadow-hover: 6px 6px 0px #000000;
+
+    /* Global navigation tokens (safe for all pages) */
+    --nav-bg: rgba(255, 255, 255, 0.92);
+    --nav-ink: var(--neo-text);
+    --nav-pill-bg: rgba(255, 255, 255, 0.9);
+    --nav-pill-hover: rgba(253, 224, 71, 0.95);
+    --nav-pill-active: rgba(34, 211, 238, 0.95);
+    --nav-stripe: linear-gradient(90deg, var(--neo-pink), var(--neo-cyan), var(--neo-yellow));
 }
 
 body {
@@ -49,20 +57,33 @@ h1, h2, h3, .hero-title, .site-title {
 
 /* Header */
 .header { 
-    background: var(--neo-yellow); 
+    background: var(--nav-bg);
     border-bottom: 4px solid var(--neo-border); 
     position: fixed; 
     top: 0; 
     left: 0; 
     right: 0; 
     z-index: 1000; 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 10px;
+    background: var(--nav-stripe);
+    border-bottom: 3px solid var(--neo-border);
 }
 
  .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+     padding: 1.1rem 2rem 1rem;
     max-width: 1200px;
     margin: 0 auto;
     gap: 2rem;
@@ -84,13 +105,13 @@ h1, h2, h3, .hero-title, .site-title {
 .nav-brand .site-title { 
     font-size: 1.6rem; 
     font-weight: 900; 
-    color: var(--neo-text); 
+    color: var(--nav-ink);
     letter-spacing: -1px; 
 }
 
 .brand-link { 
     text-decoration: none; 
-    color: var(--neo-text); 
+    color: var(--nav-ink);
     position: relative; 
     transition: transform .2s ease; 
 }
@@ -110,17 +131,20 @@ h1, h2, h3, .hero-title, .site-title {
 
 .nav-links a { 
     text-decoration: none; 
-    color: var(--neo-text); 
+    color: var(--nav-ink);
     font-weight: 700; 
     transition: transform .2s ease; 
     position: relative; 
     padding: 0.5rem 1rem;
-    border: 3px solid transparent;
+    border: 3px solid var(--neo-border);
+    background: var(--nav-pill-bg);
+    box-shadow: var(--neo-shadow);
+    border-radius: 999px;
 }
 .nav-links a:hover { 
-    transform: translateY(-2px); 
-    border: 3px solid var(--neo-border);
-    background: var(--neo-pink);
+    transform: translate(-2px, -2px);
+    background: var(--nav-pill-hover);
+    box-shadow: var(--neo-shadow-hover);
 }
 
 .nav-links a::after { 
@@ -129,9 +153,9 @@ h1, h2, h3, .hero-title, .site-title {
 
 /* Active page/link state */
 .nav-links a.active { 
-    color: var(--neo-text); 
+    color: var(--nav-ink);
     font-weight: 900; 
-    background: var(--neo-cyan);
+    background: var(--nav-pill-active);
     border: 3px solid var(--neo-border);
 }
 .nav-links a.active::after { 
@@ -144,12 +168,13 @@ h1, h2, h3, .hero-title, .site-title {
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    color: var(--neo-text); 
+    color: var(--nav-ink);
     transition: transform .2s ease; 
     padding: 0.5rem;
     border: 3px solid var(--neo-border);
-    background: var(--neo-purple);
+    background: rgba(167, 139, 250, 0.95);
     box-shadow: var(--neo-shadow);
+    border-radius: 999px;
 }
 
 .social-link svg {
@@ -482,7 +507,7 @@ section p {
         position: absolute; 
         top: 100%; 
         right: 0; 
-        background: var(--neo-yellow); 
+        background: var(--nav-bg);
         box-shadow: var(--neo-shadow-lg); 
         border: 4px solid var(--neo-border); 
         padding: 1rem 1.25rem; 
@@ -575,6 +600,223 @@ section p {
 .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ------------------------------------------------------------
+   Grid / retro theme (opt-in)
+   Apply to pages that set: body[data-theme="grid"]
+   The data-analytics page stays legacy (no data-theme) except nav.
+------------------------------------------------------------ */
+
+body[data-theme="grid"] {
+    --grid-bg: #16a34a;
+    --grid-line: rgba(0, 0, 0, 0.18);
+    --grid-size: 56px;
+    --grid-dot: rgba(0, 0, 0, 0.12);
+
+    --panel-bg: rgba(255, 255, 255, 0.96);
+    --panel-shadow: 10px 10px 0px var(--neo-border);
+    --panel-shadow-hover: 12px 12px 0px var(--neo-border);
+
+    background:
+        radial-gradient(circle at 18px 18px, var(--grid-dot) 1.4px, transparent 1.5px) 0 0 / var(--grid-size) var(--grid-size),
+        repeating-linear-gradient(0deg, transparent 0 calc(var(--grid-size) - 1px), var(--grid-line) calc(var(--grid-size) - 1px) var(--grid-size)),
+        repeating-linear-gradient(90deg, transparent 0 calc(var(--grid-size) - 1px), var(--grid-line) calc(var(--grid-size) - 1px) var(--grid-size)),
+        var(--grid-bg);
+}
+
+body[data-theme="grid"] .main {
+    margin-top: 92px;
+}
+
+body[data-theme="grid"] .hero {
+    background: transparent;
+    border-bottom: 0;
+    padding: 4.25rem 0 3.25rem;
+    min-height: auto;
+}
+
+body[data-theme="grid"] .hero::before {
+    content: none;
+}
+
+body[data-theme="grid"] .hero-content {
+    --window-titlebar-h: 54px;
+    background: var(--panel-bg);
+    border: 4px solid var(--neo-border);
+    box-shadow: var(--panel-shadow);
+    border-radius: 28px;
+    padding: calc(var(--window-titlebar-h) + 1.25rem) 2.25rem 2.5rem;
+    position: relative;
+}
+
+body[data-theme="grid"] .hero-content::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: var(--window-titlebar-h);
+    background: linear-gradient(90deg, rgba(251, 113, 133, 0.95), rgba(34, 211, 238, 0.95));
+    border-bottom: 4px solid var(--neo-border);
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+}
+
+body[data-theme="grid"] .hero-content::after {
+    content: '';
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 22px 0 0 rgba(255, 255, 255, 0.95), 44px 0 0 rgba(255, 255, 255, 0.95);
+}
+
+body[data-theme="grid"] .hero-title {
+    text-transform: none;
+    letter-spacing: -1.5px;
+}
+
+body[data-theme="grid"] .hero-subtitle {
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 700;
+}
+
+body[data-theme="grid"] .status-badge {
+    border-radius: 999px;
+    background: rgba(253, 224, 71, 0.95);
+}
+
+body[data-theme="grid"] .status-badge[data-state="in-progress"] {
+    background: rgba(251, 146, 60, 0.95);
+}
+
+body[data-theme="grid"] .status-badge[data-state="beta-released"] {
+    background: rgba(74, 222, 128, 0.95);
+}
+
+body[data-theme="grid"] .btn {
+    border-radius: 16px;
+    box-shadow: var(--panel-shadow);
+}
+
+body[data-theme="grid"] .btn:hover {
+    box-shadow: var(--panel-shadow-hover);
+}
+
+body[data-theme="grid"] .btn-primary {
+    background: rgba(251, 146, 60, 0.95);
+}
+
+body[data-theme="grid"] .btn-secondary {
+    background: rgba(34, 211, 238, 0.95);
+}
+
+body[data-theme="grid"] .about,
+body[data-theme="grid"] .projects,
+body[data-theme="grid"] .contact {
+    background: transparent;
+    border-bottom: 0;
+    padding: 4.5rem 0;
+    position: relative;
+}
+
+body[data-theme="grid"] .about::before,
+body[data-theme="grid"] .projects::before,
+body[data-theme="grid"] .contact::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 34px;
+    width: min(1200px, calc(100% - 2rem));
+    bottom: 34px;
+    background: var(--panel-bg);
+    border: 4px solid var(--neo-border);
+    border-radius: 30px;
+    box-shadow: var(--panel-shadow);
+    z-index: 0;
+}
+
+body[data-theme="grid"] .about::after,
+body[data-theme="grid"] .projects::after,
+body[data-theme="grid"] .contact::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 34px;
+    width: min(1200px, calc(100% - 2rem));
+    height: 56px;
+    border: 4px solid var(--neo-border);
+    border-bottom: 0;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    z-index: 0;
+}
+
+body[data-theme="grid"] .about::after { background: rgba(251, 113, 133, 0.92); }
+body[data-theme="grid"] .projects::after { background: rgba(167, 139, 250, 0.92); }
+body[data-theme="grid"] .contact::after { background: rgba(74, 222, 128, 0.92); }
+
+body[data-theme="grid"] .about .container,
+body[data-theme="grid"] .projects .container,
+body[data-theme="grid"] .contact .container {
+    position: relative;
+    z-index: 1;
+    padding-top: 2.5rem;
+}
+
+body[data-theme="grid"] section h2 {
+    text-transform: none;
+}
+
+body[data-theme="grid"] section p {
+    font-weight: 600;
+}
+
+body[data-theme="grid"] .projects-grid {
+    margin-top: 2.5rem;
+}
+
+body[data-theme="grid"] .project-card {
+    border-radius: 24px;
+    box-shadow: var(--panel-shadow);
+}
+
+body[data-theme="grid"] .project-card:hover {
+    box-shadow: var(--panel-shadow-hover);
+}
+
+body[data-theme="grid"] .project-card:nth-child(1) { background: rgba(253, 224, 71, 0.98); }
+body[data-theme="grid"] .project-card:nth-child(2) { background: rgba(34, 211, 238, 0.98); }
+body[data-theme="grid"] .project-card:nth-child(3) { background: rgba(251, 146, 60, 0.98); }
+body[data-theme="grid"] .project-card:nth-child(4) { background: rgba(167, 139, 250, 0.98); }
+
+body[data-theme="grid"] .footer {
+    background: rgba(10, 10, 10, 0.94);
+}
+
+@media (max-width: 768px) {
+    body[data-theme="grid"] .main { margin-top: 116px; }
+    body[data-theme="grid"] .hero-content {
+        --window-titlebar-h: 50px;
+        padding: calc(var(--window-titlebar-h) + 1.1rem) 1.25rem 2.1rem;
+        border-radius: 24px;
+    }
+    body[data-theme="grid"] .hero-content::before { border-top-left-radius: 20px; border-top-right-radius: 20px; }
+    body[data-theme="grid"] .about::before,
+    body[data-theme="grid"] .projects::before,
+    body[data-theme="grid"] .contact::before,
+    body[data-theme="grid"] .about::after,
+    body[data-theme="grid"] .projects::after,
+    body[data-theme="grid"] .contact::after {
+        width: calc(100% - 1.5rem);
+    }
+}
 
 /* ------------------------------------------------------------
    LivLift page takeover (scoped)

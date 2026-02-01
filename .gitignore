@@ -1,0 +1,9 @@
+# Local editor history (VS Code Local History extension)
+.history/
+
+# Local Python env
+.venv/
+
+# OS / tooling noise
+.DS_Store
+Thumbs.db
