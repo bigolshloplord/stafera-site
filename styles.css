@@ -7,6 +7,47 @@
 
 html { scroll-behavior: smooth; }
 
+/* Accessibility helpers */
+.sr-only {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Consistent keyboard focus across the site */
+:focus-visible {
+    outline: 3px solid var(--neo-border);
+    outline-offset: 4px;
+}
+
+/* In-content links should be visibly links (not color-only) */
+.main a:not(.btn):not(.btn-back):not(.brand-link):not(.social-link) {
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
+    text-decoration-thickness: 2px;
+}
+
+.main a:not(.btn):not(.btn-back):not(.brand-link):not(.social-link):hover {
+    text-decoration-thickness: 3px;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 /* Neobrutalism theme tokens */
 :root {
     --neo-yellow: #FDE047;
@@ -95,6 +136,9 @@ h1, h2, h3, .hero-title, .site-title {
     align-items: center;
     gap: 1.75rem;
 }
+
+/* When JS sets hidden on the mobile menu, fully remove it */
+.nav-cluster[hidden] { display: none !important; }
 
 .nav-divider {
     width: 3px;
@@ -272,6 +316,11 @@ h1, h2, h3, .hero-title, .site-title {
     cursor: pointer;
     font-size: 1rem;
     box-shadow: var(--neo-shadow);
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--neo-border);
+    outline-offset: 4px;
 }
 
 .btn-primary { 
